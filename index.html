@@ -2,13 +2,25 @@
 layout: default
 ---
 
-<div class="hero center">
-      <img src="assets/img/hk.png" />
-      <h2>Hi, I'm Hossein Karami</h2>
-      <h4>Front-End Developer</h4>
-      <h6>
-        <a href="/blog">FARSI BLOG</a> -
-        {% if site.twitter %}<a href="https://twitter.com/{{ site.twitter }}" target="_blank">TWITTER</a>{% endif %} -
-        {% if site.github %}<a href="https://github.com/{{ site.github }}" target="_blank">GITHUB</a>{% endif %}
-      </h6>
-    </div>
+<div class="home" dir="rtl">
+
+  <h1 class="page-heading">Posts</h1>
+ 
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+ <h2>
+                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </h2>
+            {{ post.excerpt }}
+			<br/><button class="btn btn-default"><a href="{{ post.url | prepend: site.baseurl }}"> ادامه مطلب </a></button>
+   
+      </li>
+    {% endfor %}
+  </ul>
+
+
+</div>
+
